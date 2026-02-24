@@ -41,8 +41,8 @@ ENV/
 # Logs
 *.log
 
-# Config (optional - uncomment if you want to ignore config)
-# config.json
+# Config (contains personal repo paths)
+config.json
 
 # Testing
 .pytest_cache/
