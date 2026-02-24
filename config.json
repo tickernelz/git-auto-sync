@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "repos": [
+    {
+      "path": "/Users/zhafron/.openclaw",
+      "interval": 60,
+      "strategy": "ours",
+      "enabled": true,
+      "added": "2026-02-24T23:24:41.146509"
+    },
+    {
+      "path": "/Users/zhafron/Sync/keepass",
+      "interval": 30,
+      "strategy": "ours",
+      "branch": "main",
+      "remote": "origin",
+      "enabled": true,
+      "added": "2026-02-24T23:36:26.809678"
+    }
+  ],
+  "global": {
+    "quietHours": {
+      "start": 22,
+      "end": 9
+    },
+    "skipHours": [
+      12
+    ],
+    "logRetention": 7,
+    "maxLogSize": 10485760
+  }
+}
