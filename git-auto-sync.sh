@@ -41,11 +41,6 @@ init_config() {
   "version": 1,
   "repos": [],
   "global": {
-    "quietHours": {
-      "start": 22,
-      "end": 9
-    },
-    "skipHours": [12],
     "logRetention": 7,
     "maxLogSize": 10485760
   }

@@ -77,8 +77,7 @@ That's it! Your repo will now auto-sync every 60 minutes.
 |---------|--------|
 | **Boot** | Sync all repos |
 | **Every 30-60 min** | Auto-sync (per repo) |
-| **22:00-09:00** | Skip (quiet hours) |
-| **12:00** | Skip (lunch) |
+| **24/7** | Always sync (no quiet hours) |
 
 ---
 

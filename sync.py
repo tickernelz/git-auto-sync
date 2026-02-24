@@ -79,28 +79,8 @@ def release_lock():
         LOCK_FILE.unlink()
 
 def should_skip_sync():
-    """Check if should skip based on quiet hours"""
-    config = get_config()
-    global_config = config.get("global", {})
-    quiet_hours = global_config.get("quietHours", {})
-    skip_hours = global_config.get("skipHours", [])
-    
-    current_hour = datetime.now().hour
-    
-    # Check quiet hours (e.g., 22:00 - 09:00)
-    start = quiet_hours.get("start", 22)
-    end = quiet_hours.get("end", 9)
-    
-    if current_hour >= start or current_hour < end:
-        log(f"Quiet hours ({current_hour}:00) - skipping", "SKIP")
-        return True
-    
-    # Check skip hours (e.g., lunch break at 12:00)
-    if current_hour in skip_hours:
-        log(f"Skip hour ({current_hour}:00) - skipping", "SKIP")
-        return True
-    
-    return False
+    """Always sync - no quiet hours"""
+    return False  # Never skip
 
 def has_changes(repo_path):
     """Check if repo has uncommitted changes"""
@@ -342,10 +322,8 @@ def main():
                 log(f"Repository not found: {args.repo}", "ERROR")
                 sys.exit(1)
         
-        # Check quiet hours (skip for manual sync with --force)
-        if not args.force and args.mode == "headless":
-            if should_skip_sync():
-                sys.exit(0)
+        # No quiet hours - always sync
+        # (should_skip_sync always returns False)
         
         # Sync each repo
         success_count = 0
